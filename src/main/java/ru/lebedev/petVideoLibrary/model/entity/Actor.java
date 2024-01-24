@@ -1,12 +1,12 @@
 package ru.lebedev.petVideoLibrary.model.entity;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
-
-import java.util.Date;
+import ru.lebedev.petVideoLibrary.model.entity.embedded.HumanPersonalData;
 
 @Entity
 @NoArgsConstructor
@@ -15,7 +15,6 @@ import java.util.Date;
 public class Actor {
     @Id
     private Long id;
-    private String name;
-    private String surname;
-    private Date dateOfBirth;
+    @Embedded
+    private HumanPersonalData humanPersonalData;
 }

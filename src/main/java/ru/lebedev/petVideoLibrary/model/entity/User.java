@@ -1,23 +1,23 @@
 package ru.lebedev.petVideoLibrary.model.entity;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.data.annotation.Id;
-
-import java.util.Date;
+import ru.lebedev.petVideoLibrary.model.entity.embedded.HumanPersonalData;
 
 @Entity
 @NoArgsConstructor
 @Getter
-@Setter
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String surname;
+    @Embedded
+    private HumanPersonalData humanPersonalData;
     private String login;
     private String email;
 }
