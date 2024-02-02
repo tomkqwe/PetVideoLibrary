@@ -1,21 +1,17 @@
 package ru.lebedev.petVideoLibrary.model.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
-
-import java.util.Date;
+import ru.lebedev.petVideoLibrary.model.entity.embedded.HumanPersonalData;
 
 @Entity
 @NoArgsConstructor
 @Getter
-@Setter
+@Table(name = "director")
 public class Director {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String surname;
-    private Date dateOfBirth;
+    private HumanPersonalData humanPersonalData;
 }
